@@ -12,30 +12,16 @@ import { FlashMessagesService } from 'flash-messages-angular';
 export class EventsComponent implements OnInit {
   editIcon:any=faEdit;
   deleteIcon:any=faTrashCan;
-  // events:Occasion[] = [
-  //   {
-  //     'name': 'iguh',
-  //     'description': 'etuiheiugf',
-  //     'date': 'hghrjhg'
-  //   },
-  //   {
-  //     'name': '4654',
-  //     'description': '3452435',
-  //     'date': '23476867'
-  //   }
-  // ];
-
-
-
   constructor(
     private eventService:EventService,
     private _flashMessagesService: FlashMessagesService
     ) { }
 
-  events:Occasion[]|any;
+  events:Occasion[]|any=[];
 
   ngOnInit(): void {
     this.getEvents();
+    this.events=[]
   }
 
   deleteEvent(id:any){
@@ -45,7 +31,6 @@ export class EventsComponent implements OnInit {
     );
     this.getEvents();
     this._flashMessagesService.show('Event Deleted!', {cssClass:'alert-danger', timeout:2000});
-
   }
 
   getEvents(){
