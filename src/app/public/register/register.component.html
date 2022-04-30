@@ -1,0 +1,35 @@
+<div class="row d-flex justify-content-center">
+  <div class="card col-6 mt-5">
+    <div class="card-header bg-dark text-white">
+      <h1 class="text-center">Sign Up!</h1>
+    </div>
+    <div class="card-body">
+      <form class="form mt-3" [formGroup]="form" (submit)="submit()">
+        <div class="row p-3">
+          <div class="form-group mt-2 col-6">
+            <label class="h5" for="">Name</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-group mt-2 col-6">
+            <label class="h5" for="">Email</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="Email">
+          </div>
+        </div>
+        <div class="row p-3">
+          <div class="form-group mt-2 col-6">
+            <label class="h5" for="">Password</label>
+            <input type="password" formControlName="password" class="form-control" placeholder="Password">
+          </div>
+          <div class="form-group mt-2 col-6">
+            <label class="h5" for="">Confirm Password</label>
+            <input type="password" formControlName="password_confirmation" class="form-control"
+              placeholder="Password Confirmation">
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <button class="btn  btn-primary btn-block mt-2 col-4" [disabled]="!form.valid">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

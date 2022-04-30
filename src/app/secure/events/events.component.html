@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card p-6 mt-5 bg-dark text-white">
+    <div class="card-header p-4 h4 d-flex justify-content-between">
+      My Events
+      <a class="btn btn-primary" routerLink="/secure/events/create"  data-toggle="tooltip" data-placement="top" title="New event">New</a>
+    </div>
+    <hr>
+    <div class="card-body">
+      <table class="table text-white">
+        <thead class="table-head">
+          <th>Name</th>
+          <th>Description</th>
+          <th>Time</th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events">
+            <td>{{event.name}}</td>
+            <td>{{event.description}}</td>
+            <td>{{event.date}}</td>
+            <td data-toggle="tooltip" data-placement="top" title="Edit event">
+              <a [routerLink]="['/secure/events/'+event.id+'/edit']" class="btn btn-primary">
+                <fa-icon [icon]="editIcon"></fa-icon>
+              </a>
+            </td>
+            <td data-toggle="tooltip" data-placement="top" title="Delete event">
+              <a (click)="deleteEvent(event.id)" class="btn btn-danger">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
