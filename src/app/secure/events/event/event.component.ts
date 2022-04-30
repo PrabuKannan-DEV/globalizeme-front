@@ -35,12 +35,12 @@ export class EventComponent implements OnInit {
     .subscribe(
       result => {
         this.event = result
-        // this.router.navigate(['/secure']);
+        this.router.navigate(['/secure']);
+        this._flashMessagesService.show('New Event Created!', {cssClass:'alert-success', timeout:2000});
       },
-      error => console.log(error)
+      error => {console.log(error)
+        this._flashMessagesService.show(error.error.message, {cssClass:'alert-danger', timeout:2000})}
     )
-    this.router.navigate(['/secure']);
-    this._flashMessagesService.show('New Event Created!', {cssClass:'alert-success', timeout:2000});
   }
 
 }

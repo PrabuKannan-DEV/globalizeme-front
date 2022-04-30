@@ -56,7 +56,7 @@ export class EditComponent implements OnInit {
           this.router.navigate(['/secure']);
           this._flashMessagesService.show('Updated Successfully!', { cssClass: 'alert-warning', timeout: 2000 });
         },
-        error => console.log(error)
+        error => this._flashMessagesService.show(error.error.message, {cssClass:'alert-danger', timeout:2000})
       )
   }
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'flash-messages-angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
       password: formData.password,
       grant_type: 'password',
       client_id: 2,
-      client_secret: '1KwO8PDteacrYCXHrxhi01aEEIzrdSZRqPeOU7x1',
+      client_secret: environment.client_secret,
       scope: '*'
     }
 
@@ -43,8 +44,8 @@ export class LoginComponent implements OnInit {
       this._flashMessagesService.show('Welcome to your home page!', {cssClass:'alert-success', timeout:1000});
     },
     error => {
-      console.log('error');
       console.log(error)
+      this._flashMessagesService.show(error.error.message, {cssClass:'alert-danger', timeout:2000})
     });
   }
 

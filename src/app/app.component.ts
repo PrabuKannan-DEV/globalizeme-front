@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashMessagesService } from 'flash-messages-angular';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   loggedIn = false;
 
+  constructor(private _flashMessagesService: FlashMessagesService){
+  }
   ngOnInit(){
     this.loggedIn = localStorage.getItem('token') !== null;
   }
@@ -15,5 +18,6 @@ export class AppComponent implements OnInit{
   logout(){
     localStorage.removeItem('token');
     this.loggedIn = false;
-  }
+    this._flashMessagesService.show('Logged Out', {cssClass:'alert-danger', timeout:2000})}
 }
+

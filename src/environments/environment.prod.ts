@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  client_secret: 'frDXO7fRGPaiRsrG8iP5gYQlmxS0QLiPukDNQmsK'
 };
